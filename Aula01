@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS iNova; 
+
+CREATE DATABASE iNova;
+
+USE iNova;
+
+DROP TABLE IF EXISTS dono;
+
+CREATE TABLE dono(
+id INT PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+nome VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL UNIQUE,
+numero INT, 
+cod_licenca INT,
+data_cadastro DATETIME 
+);
+
+
+INSERT INTO dono (nome,email) VALUES ('Luis Azevedo', 'luislipeaz@hotmail.com');
+
+SELECT id,nome,email FROM dono; 
