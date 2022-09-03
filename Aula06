@@ -1,0 +1,59 @@
+/*
+Exercícios Aula #06
+*/
+
+DROP DATABASE IF EXISTS aulaseis;
+CREATE DATABASE aulaseis; 
+USE aulaseis;						
+
+CREATE TABLE estado(
+id INT NOT NULL AUTO_INCREMENT
+,nome VARCHAR(200) NOT NULL UNIQUE  
+,sigla CHAR(2) NOT NULL UNIQUE
+,ativo ENUM('S','N') NOT NULL DEFAULT 'S'
+,data_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+,CONSTRAINT pk_estado PRIMARY KEY (id)  
+);
+
+CREATE TABLE cidade (			
+id INT NOT NULL AUTO_INCREMENT
+,nome VARCHAR(200)  NOT NULL
+,ativo ENUM('S','N') NOT NULL DEFAULT 'S'
+,data_cadastro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+,estado_id INT NOT NULL 
+,CONSTRAINT pk_cidade PRIMARY KEY (id)
+,CONSTRAINT fk_cidade_estado FOREIGN KEY (estado_id) REFERENCES estado (id)
+,CONSTRAINT cidade_unica UNIQUE(nome, estado_id)
+);
+
+/*
+5. Escreva o comando para inserir 3 registros da tabela estado com todas as colunas. 
+6. Escreva o comando para inserir 2 registros da tabela estado, definindo todos os dados, exceto a chave  primária que é auto incremento. 
+7. Escreva o comando para inserir 2 registros da tabela estado, definindo somente os dados necessários. 
+8. Escreva o comando para inserir registros da tabela cidade das 3 formas apresentadas nos exercícios  anteriores.  
+9. Faça a inserção de 2 registros de cliente. 
+*/
+
+-- 5.
+INSERT INTO estado (id,nome, sigla, ativo, data_cadastro) VALUES (1, 'ACRE', 'AC', 'S', '1962-06-10');
+INSERT INTO estado (id,nome, sigla, ativo, data_cadastro) VALUES (2, 'BAHIA','BA', 'S', '1500-05-12');
+INSERT INTO estado (id,nome, sigla, ativo, data_cadastro) VALUES (3, 'RIO GRANDE DO NORTE', 'RN', 'S', '1818-05-07');
+
+-- 6.
+INSERT INTO estado (nome, sigla, ativo, data_cadastro) VALUES ('PIAUI', 'PI', 'S', '1850-06-08');
+INSERT INTO estado (nome, sigla, ativo, data_cadastro) VALUES ('MINAS GERAIS','MG', 'S', '1670-08-04');
+
+-- 7.
+INSERT INTO estado (nome,sigla) VALUES ('SANTA CATARINA','SC');
+INSERT INTO estado (nome,sigla) VALUES ('CEARÁ','CE');
+
+-- 8.
+INSERT INTO cidade (id,nome,ativo,data_cadastro,estado_id) VALUES (1, 'RIO BRANCO','S','1965-06-06', 1); 
+INSERT INTO cidade (nome,ativo,data_cadastro,estado_id) VALUES ('FLORIANÓPOLIS','S','1912-08-11', 6); 
+INSERT INTO cidade (nome,estado_id) VALUES ('SALVADOR', 2);
+
+-- 9.
+INSERT INTO cliente (nome, cpf, email, numero) VALUES ('JOÃO PEDRO FILHO', 48956245691, 'joazinpf@outlook.com', 44997845629);
+INSERT INTO cliente (nome, cpf, email, numero) VALUES ('JOBSON DA SILVA GOMES', 48465487954, 'jobsilvaso@hotmail.com.br', 449898465456);
+
+
