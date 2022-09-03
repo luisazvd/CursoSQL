@@ -1,0 +1,34 @@
+/*
+Lista de exercícios - JOIN
+*/
+
+/*
+01 - O que é JOIN? Quando é necessário?
+Resp: O JOIN é uma forma de combinar duas tabelas através de alguma chave ou valor comum entre elas, como por exemplo uma cahve estrangeira.
+Com isso, o JOIN se faz necessário quando precisamos vincular dados presentes em diferentes tabelas para obtê-los em um único resultado apresentado, como no exemplo disponibilizado
+em aula de trazer de uma tabela "estado" a sigla do mesmo com o nome de uma tabela "cidade" com os estados correspondentes.
+*/ 
+/*
+02 - Qual a sintaxe do JOIN? Maiúscula ou minúscula faz diferença? Existe algum padrão? Explique.
+Resp: No caso do desenvolvimento do código, não haverá diferença entre maiúscula ou minúscula, pois ao se encontrar como "JOIN" no script será reconhecido corretamente,
+mas que estaríamos utilizando o mesmo apenas em letras maiúsculas por seguir um padrão adotado nas aulas e muito bem aceito entre a comunidade dos programadores, sendo o
+de apresentar os comandos (de DDL ou DML por exemplo) em maiúsculo para facilitar com esse padrão.
+*/
+/*
+03 - O que é primordial para que o resultado tenha sentido em consultas com JOIN? Explique.
+Resp: Para que o resultado das consultas tenham sentido há duas questões a serem focadas, sendo nesse caso a primeira no que diz respeito ao SELECT, pois é preciso direcionar
+certa atenção ao mesmo para que a seleção através do mesmo seja corretamente estruturada, e a segunda seria referente às condições para com o WHERE, no qual com o mesmo
+será possível definir que o sistema apresente apenas os dados que se encontram realmente vinculados entre as tabelas para assim retornar uma melhor visualização de acordo
+com o que buscamos na consulta, em que sem o mesmo tal consulta irá apenas juntar todas as possibilidades possíveis dos registros entre as tabelas.
+*/
+/*
+04 - Existe mais de uma maneira de realizar o JOIN? Quantas? Qual é a mais eficiente? 
+Resp: Sim, atualmente existem cinco tipos de JOIN, que realizam as consultas de diferentes formas nas tabelas, sendo eles:
+INNER JOIN(retornar registros das duas tabelas correspondentes),
+LEFT JOIN(retornar apenas os registros da tabela da esquerda juntamente com os que tenham correspondência na tabela direita), 
+RIGHT JOIN(retornar apenas os registros da tabela da direita juntamente com os que tenham correspondência na tabela da esquerda), 
+FULL JOIN(utilizado para retornar todos os registros de ambas as tabelas),
+CROSS JOIN(para retornar os registros realizando um cruzamento entre os dados das tabelas presentes na junção).
+Com isso, não seria possível determinar uma opção como mais eficiente, por conta de que com todas as opções conseguimos estar realizando combinações entre tabelas 
+para realizar consultas complexas nos bancos de dados de forma simples.
+*/
